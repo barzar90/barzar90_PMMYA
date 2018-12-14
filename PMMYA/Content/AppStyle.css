@@ -1,0 +1,9 @@
+﻿html 
+{
+    font-family: verdana;
+    font-size: 10pt;
+}
+
+label.errorMsg {
+    color: red;
+}

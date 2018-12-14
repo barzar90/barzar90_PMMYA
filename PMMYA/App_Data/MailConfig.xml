@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MailConfig>
+
+  <Mail Profile="forgotpassword">
+    <host>smtp.gmail.com</host>
+    <port>587</port>
+    <from>rechargeme2016@gmail.com</from>
+    <to></to>
+    <subject>
+      Your New Password
+    </subject>
+    <body>
+      <user>
+        Dear #UserName,
+
+        Please find the new system generated password.
+
+        Password has been changed with : #TRNID
+
+        Please change the password at the earlisted on the portal.
+
+        Regards
+        Pradhan Mantri Mudra Yojana, Maharashtra        
+
+        Note :	This is system generated email . Please do not respond to this email.
+      </user>
+    </body>
+  </Mail>
+
+</MailConfig>

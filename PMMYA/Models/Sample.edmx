@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Excel_ReadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BankDetails">
+          <Key>
+            <PropertyRef Name="b_id" />
+          </Key>
+          <Property Name="b_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="50" />
+          <Property Name="bankId" Type="int" />
+        </EntityType>
+        <EntityType Name="Ph_Sec_Excel">
+          <Key>
+            <PropertyRef Name="Ph_Sec_Id" />
+          </Key>
+          <Property Name="Ph_Sec_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sr_No" Type="int" Nullable="false" />
+          <Property Name="BankName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BankBranch" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IFSCCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="App_Reg" Type="nvarchar" MaxLength="50" />
+          <Property Name="Loan_Category" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaritalStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dob" Type="date" Nullable="false" />
+          <Property Name="Village" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gram" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tehsil" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Block" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="District" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Religion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Minority_Comm" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Social_Category" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Aadhar" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PAN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ReqLoanAmnt" Type="int" Nullable="false" />
+          <Property Name="SanctionAmnt" Type="int" Nullable="false" />
+          <Property Name="SanctionDate" Type="date" Nullable="false" />
+          <Property Name="Business_Activity" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type_Loan" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DisbursedAmnt" Type="int" Nullable="false" />
+          <Property Name="DisburseDate" Type="date" Nullable="false" />
+          <Property Name="LoanAmntOutStanding" Type="int" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="usp_ReadDataInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Sr_No" Type="int" Mode="In" />
+          <Parameter Name="BankName" Type="varchar(max)" Mode="In" />
+          <Parameter Name="BankBranch" Type="varchar(max)" Mode="In" />
+          <Parameter Name="IFSCCode" Type="varchar(max)" Mode="In" />
+          <Parameter Name="App_Reg" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Loan_Category" Type="varchar(max)" Mode="In" />
+          <Parameter Name="FirstName" Type="varchar(max)" Mode="In" />
+          <Parameter Name="MiddleName" Type="varchar(max)" Mode="In" />
+          <Parameter Name="LastName" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Gender" Type="varchar(max)" Mode="In" />
+          <Parameter Name="MaritalStatus" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Dob" Type="date" Mode="In" />
+          <Parameter Name="Village" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Gram" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Tehsil" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Block" Type="varchar(max)" Mode="In" />
+          <Parameter Name="District" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Religion" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Minority_Comm" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Social_Category" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Aadhar" Type="varchar(max)" Mode="In" />
+          <Parameter Name="PAN" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Mobile" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Email" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ReqLoanAmnt" Type="int" Mode="In" />
+          <Parameter Name="SanctionAmnt" Type="int" Mode="In" />
+          <Parameter Name="SanctionDate" Type="date" Mode="In" />
+          <Parameter Name="Business_Activity" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Type_Loan" Type="varchar(max)" Mode="In" />
+          <Parameter Name="DisbursedAmnt" Type="int" Mode="In" />
+          <Parameter Name="DisburseDate" Type="date" Mode="In" />
+          <Parameter Name="LoanAmntOutStanding" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="varchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="Excel_ReadModelStoreContainer">
+          <EntitySet Name="BankDetails" EntityType="Self.BankDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ph_Sec_Excel" EntityType="Self.Ph_Sec_Excel" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Excel_ReadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BankDetail">
+          <Key>
+            <PropertyRef Name="b_id" />
+          </Key>
+          <Property Name="b_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bankId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Ph_Sec_Excel">
+          <Key>
+            <PropertyRef Name="Ph_Sec_Id" />
+          </Key>
+          <Property Name="Ph_Sec_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sr_No" Type="Int32" Nullable="false" />
+          <Property Name="BankName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BankBranch" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IFSCCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="App_Reg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Loan_Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Dob" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Village" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gram" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tehsil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Block" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Minority_Comm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Social_Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Aadhar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PAN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReqLoanAmnt" Type="Int32" Nullable="false" />
+          <Property Name="SanctionAmnt" Type="Int32" Nullable="false" />
+          <Property Name="SanctionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Business_Activity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type_Loan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DisbursedAmnt" Type="Int32" Nullable="false" />
+          <Property Name="DisburseDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LoanAmntOutStanding" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Excel_ReadEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BankDetails" EntityType="Self.BankDetail" />
+          <EntitySet Name="Ph_Sec_Excel" EntityType="Self.Ph_Sec_Excel" />
+          <FunctionImport Name="usp_ReadDataInsert">
+            <Parameter Name="Sr_No" Mode="In" Type="Int32" />
+            <Parameter Name="BankName" Mode="In" Type="String" />
+            <Parameter Name="BankBranch" Mode="In" Type="String" />
+            <Parameter Name="IFSCCode" Mode="In" Type="String" />
+            <Parameter Name="App_Reg" Mode="In" Type="String" />
+            <Parameter Name="Loan_Category" Mode="In" Type="String" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="MiddleName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="Gender" Mode="In" Type="String" />
+            <Parameter Name="MaritalStatus" Mode="In" Type="String" />
+            <Parameter Name="Dob" Mode="In" Type="DateTime" />
+            <Parameter Name="Village" Mode="In" Type="String" />
+            <Parameter Name="Gram" Mode="In" Type="String" />
+            <Parameter Name="Tehsil" Mode="In" Type="String" />
+            <Parameter Name="Block" Mode="In" Type="String" />
+            <Parameter Name="District" Mode="In" Type="String" />
+            <Parameter Name="Religion" Mode="In" Type="String" />
+            <Parameter Name="Minority_Comm" Mode="In" Type="String" />
+            <Parameter Name="Social_Category" Mode="In" Type="String" />
+            <Parameter Name="Aadhar" Mode="In" Type="String" />
+            <Parameter Name="PAN" Mode="In" Type="String" />
+            <Parameter Name="Mobile" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="ReqLoanAmnt" Mode="In" Type="Int32" />
+            <Parameter Name="SanctionAmnt" Mode="In" Type="Int32" />
+            <Parameter Name="SanctionDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Business_Activity" Mode="In" Type="String" />
+            <Parameter Name="Type_Loan" Mode="In" Type="String" />
+            <Parameter Name="DisbursedAmnt" Mode="In" Type="Int32" />
+            <Parameter Name="DisburseDate" Mode="In" Type="DateTime" />
+            <Parameter Name="LoanAmntOutStanding" Mode="In" Type="Int32" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Excel_ReadModelStoreContainer" CdmEntityContainer="Excel_ReadEntities">
+          <EntitySetMapping Name="BankDetails">
+            <EntityTypeMapping TypeName="Excel_ReadModel.BankDetail">
+              <MappingFragment StoreEntitySet="BankDetails">
+                <ScalarProperty Name="b_id" ColumnName="b_id" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="bankId" ColumnName="bankId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ph_Sec_Excel">
+            <EntityTypeMapping TypeName="Excel_ReadModel.Ph_Sec_Excel">
+              <MappingFragment StoreEntitySet="Ph_Sec_Excel">
+                <ScalarProperty Name="Ph_Sec_Id" ColumnName="Ph_Sec_Id" />
+                <ScalarProperty Name="Sr_No" ColumnName="Sr_No" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="BankBranch" ColumnName="BankBranch" />
+                <ScalarProperty Name="IFSCCode" ColumnName="IFSCCode" />
+                <ScalarProperty Name="App_Reg" ColumnName="App_Reg" />
+                <ScalarProperty Name="Loan_Category" ColumnName="Loan_Category" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="Village" ColumnName="Village" />
+                <ScalarProperty Name="Gram" ColumnName="Gram" />
+                <ScalarProperty Name="Tehsil" ColumnName="Tehsil" />
+                <ScalarProperty Name="Block" ColumnName="Block" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="Minority_Comm" ColumnName="Minority_Comm" />
+                <ScalarProperty Name="Social_Category" ColumnName="Social_Category" />
+                <ScalarProperty Name="Aadhar" ColumnName="Aadhar" />
+                <ScalarProperty Name="PAN" ColumnName="PAN" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ReqLoanAmnt" ColumnName="ReqLoanAmnt" />
+                <ScalarProperty Name="SanctionAmnt" ColumnName="SanctionAmnt" />
+                <ScalarProperty Name="SanctionDate" ColumnName="SanctionDate" />
+                <ScalarProperty Name="Business_Activity" ColumnName="Business_Activity" />
+                <ScalarProperty Name="Type_Loan" ColumnName="Type_Loan" />
+                <ScalarProperty Name="DisbursedAmnt" ColumnName="DisbursedAmnt" />
+                <ScalarProperty Name="DisburseDate" ColumnName="DisburseDate" />
+                <ScalarProperty Name="LoanAmntOutStanding" ColumnName="LoanAmntOutStanding" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_ReadDataInsert" FunctionName="Excel_ReadModel.Store.usp_ReadDataInsert" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
