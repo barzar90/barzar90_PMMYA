@@ -13,7 +13,6 @@ namespace BL
         int result = 0;
         #endregion
 
-
         public DataSet GetPressNewsAlbumdetails(AlbumSchema objAlbumSchema)
         {
             try
